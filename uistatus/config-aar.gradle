@@ -1,0 +1,33 @@
+//1.导入maven插件
+apply plugin: 'maven'
+
+//2.定义maven信息
+ext {
+    PUBLISH_GROUP_ID = project.properties.get("publishGroupId")
+    PUBLISH_ARTIFACT_ID = "ui-status"
+    PUBLISH_VERSION = "1.0.0"
+    PUBLISH_PATH = project.properties.get("publishRootPath") + "/UiStatus"
+}
+//3.配置maven输出路径及信息
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            repository(url: project.PUBLISH_PATH)
+            pom.project {
+                groupId project.PUBLISH_GROUP_ID
+                artifactId project.PUBLISH_ARTIFACT_ID
+                version project.PUBLISH_VERSION
+            }
+        }
+    }
+}
+
+//4.一下代码会生成jar包源文件，如果不开源代码，请不要配置这段代码
+//aar包内包含注释
+//task androidSourcesJar(type: Jar) {
+//    classifier = 'sources'
+//    from android.sourceSets.main.java.sourceFiles
+//}
+//artifacts {
+//    archives androidSourcesJar
+//}

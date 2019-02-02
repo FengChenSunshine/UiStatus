@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#f40"
+    android:padding="10dp">
+
+    <TextView
+        android:id="@+id/tv_hint_retry"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="有10条新推荐了，点击查看~"
+        android:textColor="#fff" />
+</LinearLayout>

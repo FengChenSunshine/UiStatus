@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!--内容-->
+
+    <!--加载中-->
+    <ViewStub
+        android:id="@+id/view_stub_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/layout_loading" />
+
+    <!--网络错误-->
+    <ViewStub
+        android:id="@+id/view_stub_network_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/layout_network_error" />
+
+    <!--加载失败-->
+    <ViewStub
+        android:id="@+id/view_stub_load_error"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/layout_load_error" />
+
+    <!--空布局-->
+    <ViewStub
+        android:id="@+id/view_stub_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/layout_empty" />
+
+    <!--未找到内容布局-->
+    <ViewStub
+        android:id="@+id/view_stub_not_found"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:inflatedId="@+id/layout_not_found" />
+
+    <!--NetWorkErrorWidget视图-->
+    <ViewStub
+        android:id="@+id/view_stub_network_error_widget"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inflatedId="@+id/layout_network_error_widget"
+        tools:layout_marginTop="48dp" />
+
+    <!--Elfin视图-->
+    <ViewStub
+        android:id="@+id/view_stub_hint"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inflatedId="@+id/layout_not_found"
+        tools:layout_marginTop="48dp" />
+
+    <!--Bottom Float视图-->
+    <ViewStub
+        android:id="@+id/view_stub_bottom_float"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:inflatedId="@+id/layout_bottom_float" />
+
+</merge>
