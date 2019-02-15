@@ -1,6 +1,4 @@
-# UiStatus
-
-![image](https://github.com/FengChenSunshine/UiStatus/blob/master/image/uistatus_demo.gif)
+# UiStatus 一个简单且强大的Android Ui视图状态控制库.
 
 ![image](https://github.com/FengChenSunshine/UiStatus/blob/master/image/uistatus_demo_320.gif)
 

@@ -8,7 +8,15 @@ import android.view.View;
 
 import com.fengchen.uistatus.UiStatusController;
 import com.fengchen.uistatus.annotation.UiStatus;
-
+/**
+ * Created by 枫尘 on 2019/2/15 15:01.
+ *@author 枫尘
+ *@class HomeActivity
+ *@version 1.0.0
+ *@describe 演示Demo.
+ * MP4——>gif转换：https://ezgif.com/video-to-gif
+ * gif文件压缩：https://www.tuhaokuai.com/?b3
+ */
 public class HomeActivity extends AppCompatActivity implements View.OnClickListener {
 
     private UiStatusController mUiStatusController;
