@@ -1,7 +1,7 @@
 # UiStatus
 
-! [ image ](https://www.jitpack.io)
-! [ video ](https://github.com/FengChenSunshine/UiStatus/blob/master/image/demo.mp4)
+![image](https://www.jitpack.io)
+![image](https://github.com/FengChenSunshine/UiStatus/blob/master/image/uistatus_demo.gif)
 
 **step one：**
 
