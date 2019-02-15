@@ -1,7 +1,8 @@
 # UiStatus
 
-![image](https://www.jitpack.io)
 ![image](https://github.com/FengChenSunshine/UiStatus/blob/master/image/uistatus_demo.gif)
+
+![image](https://github.com/FengChenSunshine/UiStatus/blob/master/image/uistatus_demo_320.gif)
 
 **step one：**
 
