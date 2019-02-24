@@ -10,9 +10,14 @@
 ## 优点：
 
 1.轻量：简单且够用！！！
+
 2.省内存：使用ViewStub，所有未使用到的状态均不会初始化，减少视图初始化开销。
+
 3.解耦、封装：降低各种视图状态和业务层耦合，使用者只需要关心业务层逻辑而无需知道视图状态管理内部逻辑。
+
 4.自由：不提供任何状态视图，高度可配置，完全由开发者自己定义。
+
+5.强大：可以使用在任何Activity、Fragment、View当中。
 
 ## 目前该库包含的状态有9种：
     
@@ -116,7 +121,7 @@
     对于普通视图切换使用UiStatusController.changeUiStatusIgnore(uiStatus)切换；
     对于Widget视图使用UiStatusController.showWidget(uiStatus)进行显示；
     或者使用其重载方法showWidget(uiStatus,duration)方法进行显示，使用该方法时会在duration时间后自动隐藏；
-    其中第二个使用UiStatusController.hideWidget()方法进行隐藏。
+    也可以使用UiStatusController.hideWidget()方法进行隐藏Widget小部件。
   
 ## 4.成功
 
@@ -132,5 +137,16 @@
 ## 6.优化
 
    一般的开发者只需要在自定义的Application中全局配置一次即可，并且对于LOADING、LOAD_ERROR、EMPTY、NOT_FOUND、CONTENT这些普通视图的切换可以下沉到    统一在基类Activity、Fragment或者网络加载框架中处理，具体使用大同小异，可参考Demo，这里不再赘述。
+   
+ ## 7.UiStatus可实现效果部分展示
+ 
+ ![status_load_error](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_load_error.png)
+ ![status_not_found](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_not_found.png)
+ ![status_widget_elfin](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_elfin.jpg)
+ ![status_widget_elfin_2](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_elfin_2.jpg)
+ ![status_widget_float](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_float.jpg)
+ ![status_widget_network_error](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_network_error.jpg)
+ 
+ 图片来自其他APP，仅供参考实现效果使用。其他未列出效果不代表不能实现，具体可实现效果尽情发挥想象！！！
 
 
