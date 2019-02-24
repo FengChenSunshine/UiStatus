@@ -140,13 +140,17 @@
    
  ## 7.UiStatus可实现效果部分展示
  
- ![status_load_error](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_load_error.png)
- ![status_not_found](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_not_found.png)
- ![status_widget_elfin](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_elfin.jpg)
- ![status_widget_elfin_2](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_elfin_2.jpg)
- ![status_widget_float](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_float.jpg)
- ![status_widget_network_error](https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_network_error.jpg)
  
- 图片来自其他APP，仅供参考实现效果使用。其他未列出效果不代表不能实现，具体可实现效果尽情发挥想象！！！
+ 注：图片来自其他APP，仅供参考实现效果使用。其他未列出效果不代表不能实现，具体可实现效果尽情发挥想象！！！
+ 
+<div align="center">
+<img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_load_error.png" width="240" alt="status_load_error">
+<img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_not_found.png" width="240" alt="status_not_found">
+<img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_elfin.jpg" width="240" alt="status_widget_elfin">
+<img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_elfin_2.jpg" width="240" alt="status_widget_elfin_2">
+<img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_float.jpg" width="240" alt="status_widget_float">
+<img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_network_error.jpg" width="240" alt="status_widget_network_error">
+</div>
+
 
 
