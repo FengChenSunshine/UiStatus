@@ -153,5 +153,7 @@
 <img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_network_error.jpg" width="240" alt="status_widget_network_error">
 </div>
 
+ ## [8.点击查看简书上使用方法介绍](https://www.jianshu.com/p/895c9441c28b)
+
 
 
