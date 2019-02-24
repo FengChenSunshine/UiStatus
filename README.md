@@ -149,6 +149,7 @@
 <img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_elfin.jpg" width="240" alt="status_widget_elfin">
 <img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_elfin_2.jpg" width="240" alt="status_widget_elfin_2">
 <img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_float.jpg" width="240" alt="status_widget_float">
+<img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_float_2.jpg" width="240" alt="status_widget_float_2">
 <img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_network_error.jpg" width="240" alt="status_widget_network_error">
 </div>
 
