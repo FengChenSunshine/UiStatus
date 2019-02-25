@@ -13,7 +13,6 @@ app/libs/
 app/src/androidTest/
 app/src/main/res/mipmap-anydpi-v26/
 app/src/test/
-gradle/
 gradlew
 gradlew.bat
 uistatus/src/androidTest/
