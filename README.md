@@ -1,5 +1,7 @@
 # UiStatus 一个简单且强大的Android Ui视图状态控制库.
 
+[![](https://jitpack.io/v/FengChenSunshine/UiStatus.svg)](https://jitpack.io/#FengChenSunshine/UiStatus)
+
 >**_我一直觉得程序员就像诗人一样，敲代码就像写诗，好的代码何尝不是一首优美的诗！_**
 
 所以我把项目中的视图控制部分抽取出来，单独封装成了UiStatus这个库。希望可以帮助大家简化这部分操作，也希望对大家有用。
@@ -50,7 +52,7 @@
 **step two ：**
 
     dependencies {
-            implementation 'com.github.FengChenSunshine:UiStatus:{version}'
+            implementation 'com.github.FengChenSunshine:UiStatus:1.0.3'
     }
 ### 2.全局配置
     UiStatus库不提供任何状态的视图，完全由开发者自己自定义提供。
@@ -157,6 +159,7 @@
  
 ### 1.0.1 
    1.minSdkVersion从19降低到14;
+   
    2.增加 OnCompatRetryListener 监听器，可以统一添加普通状态的重试监听。
  
  
