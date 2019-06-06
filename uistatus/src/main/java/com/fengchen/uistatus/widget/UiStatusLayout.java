@@ -15,6 +15,7 @@ import com.fengchen.uistatus.UiStatusController;
 import com.fengchen.uistatus.UiStatusNetworkStatusProvider;
 import com.fengchen.uistatus.annotation.UiStatus;
 import com.fengchen.uistatus.controller.IUiStatusController;
+import com.fengchen.uistatus.listener.OnCompatRetryListener;
 import com.fengchen.uistatus.listener.OnLayoutStatusChangedListener;
 
 /**
@@ -143,18 +144,26 @@ public class UiStatusLayout extends FrameLayout implements IUiStatusController, 
         dispatchTrigger((int) v.getTag(), v);
     }
 
-    private void dispatchTrigger(@UiStatus int uiStatus, View trigger) {
+    private void dispatchTrigger(@UiStatus int uiStatus, @NonNull View trigger) {
         Postcard postcard = mUiStatusController.getUiStatusConfig(uiStatus);
         if (trigger.getId() != postcard.triggerViewId) return;
 
-        if (null != postcard.retryListener) {
+        OnCompatRetryListener compatRetryListener = mUiStatusController.getOnCompatRetryListener();
+
+        //检查是否需要显示加载中状态.
+        if (null != postcard.retryListener || null != compatRetryListener) {
             if (mUiStatusController.isAutoLoadingWithRetry()
                     && (UiStatus.NETWORK_ERROR == uiStatus
                     || UiStatus.LOAD_ERROR == uiStatus
                     || UiStatus.EMPTY == uiStatus)) {
                 changeUiStatusIgnore(UiStatus.LOADING);
             }
+        }
+        //重试.
+        if (null != postcard.retryListener) {
             postcard.retryListener.onUiStatusRetry(mTarget, mUiStatusController, trigger);
+        } else if (null != compatRetryListener) {
+            compatRetryListener.onUiStatusRetry(uiStatus, mTarget, mUiStatusController, trigger);
         }
     }
 

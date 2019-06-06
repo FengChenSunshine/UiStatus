@@ -10,6 +10,7 @@ import com.fengchen.uistatus.annotation.UiStatus;
 import com.fengchen.uistatus.controller.IUiStatusController;
 import com.fengchen.uistatus.controller.IUiStatusProvider;
 import com.fengchen.uistatus.controller.UiStatusProviderImpl;
+import com.fengchen.uistatus.listener.OnCompatRetryListener;
 import com.fengchen.uistatus.listener.OnLayoutStatusChangedListener;
 import com.fengchen.uistatus.listener.OnRetryListener;
 import com.fengchen.uistatus.utils.BindHelp;
@@ -94,6 +95,16 @@ public class UiStatusController implements IUiStatusProvider, IUiStatusControlle
     }
 
     @Override
+    public IUiStatusProvider setOnCompatRetryListener(OnCompatRetryListener compatRetryListener) {
+        return mIUiStatusProvider.setOnCompatRetryListener(compatRetryListener);
+    }
+
+    @Override
+    public OnCompatRetryListener getOnCompatRetryListener() {
+        return mIUiStatusProvider.getOnCompatRetryListener();
+    }
+
+    @Override
     public UiStatusController setAutoLoadingWithRetry(boolean isAutoLoadingWithRetry) {
         mIUiStatusProvider.setAutoLoadingWithRetry(isAutoLoadingWithRetry);
         return this;
@@ -132,7 +143,7 @@ public class UiStatusController implements IUiStatusProvider, IUiStatusControlle
     }
 
     @Override
-    public void hideWidget( @IntRange(from = 7, to = 9)  @UiStatus int uiStatus) {
+    public void hideWidget(@IntRange(from = 7, to = 9) @UiStatus int uiStatus) {
         mUiStatusLayout.hideWidget(uiStatus);
     }
 
@@ -140,4 +151,5 @@ public class UiStatusController implements IUiStatusProvider, IUiStatusControlle
     public boolean isVisibleUiStatus(@UiStatus int uiStatus) {
         return mUiStatusLayout.isVisibleUiStatus(uiStatus);
     }
+
 }

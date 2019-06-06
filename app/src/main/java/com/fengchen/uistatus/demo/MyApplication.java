@@ -3,6 +3,8 @@ package com.fengchen.uistatus.demo;
 import android.app.Application;
 import android.content.Context;
 import android.os.Handler;
+import android.support.annotation.NonNull;
+import android.util.Log;
 import android.view.View;
 import android.widget.Toast;
 
@@ -10,6 +12,7 @@ import com.fengchen.uistatus.UiStatusManager;
 import com.fengchen.uistatus.UiStatusNetworkStatusProvider;
 import com.fengchen.uistatus.annotation.UiStatus;
 import com.fengchen.uistatus.controller.IUiStatusController;
+import com.fengchen.uistatus.listener.OnCompatRetryListener;
 import com.fengchen.uistatus.listener.OnRequestNetworkStatusEvent;
 import com.fengchen.uistatus.listener.OnRetryListener;
 
@@ -32,18 +35,20 @@ public class MyApplication extends Application {
                 .setWidgetMargin(UiStatus.WIDGET_FLOAT, 0, 0)
                 .addUiStatusConfig(UiStatus.LOADING, R.layout.ui_status_layout_loading)//加载中.
                 .addUiStatusConfig(UiStatus.NETWORK_ERROR, R.layout.ui_status_layout_network_error, R.id.tv_network_error_retry
-                        , new OnRetryListener() {
-                            @Override
-                            public void onUiStatusRetry(Object target, final IUiStatusController controller, View trigger) {
-                                Toast.makeText(trigger.getContext(), "网络错误重试", Toast.LENGTH_LONG).show();
-                                new Handler().postDelayed(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        controller.changeUiStatus(UiStatus.LOAD_ERROR);
-                                    }
-                                }, 1000);
-                            }
-                        })//网络错误.
+                        , null
+//                        new OnRetryListener() {
+//                            @Override
+//                            public void onUiStatusRetry(Object target, final IUiStatusController controller, View trigger) {
+//                                Toast.makeText(trigger.getContext(), "网络错误重试", Toast.LENGTH_LONG).show();
+//                                new Handler().postDelayed(new Runnable() {
+//                                    @Override
+//                                    public void run() {
+//                                        controller.changeUiStatus(UiStatus.LOAD_ERROR);
+//                                    }
+//                                }, 1000);
+//                            }
+//                        }
+                )//网络错误.
                 .addUiStatusConfig(UiStatus.LOAD_ERROR, R.layout.ui_status_layout_load_error, R.id.tv_load_error_retry
                         , new OnRetryListener() {
                             @Override
@@ -119,12 +124,24 @@ public class MyApplication extends Application {
                         Toast.makeText(trigger.getContext(), "我是Float", Toast.LENGTH_SHORT).show();
                     }
                 })
-        ;
+                .setOnCompatRetryListener(new OnCompatRetryListener() {
+                    @Override
+                    public void onUiStatusRetry(int uiStatus, @NonNull Object target, final @NonNull IUiStatusController controller, @NonNull View trigger) {
+                        Log.i("--", "全局设置" + uiStatus);
+
+                        new Handler().postDelayed(new Runnable() {
+                            @Override
+                            public void run() {
+                                controller.changeUiStatus(UiStatus.LOAD_ERROR);
+                            }
+                        }, 1000);
+                    }
+                });
 
         UiStatusNetworkStatusProvider.getInstance()
                 .registerOnRequestNetworkStatusEvent(new OnRequestNetworkStatusEvent() {
                     @Override
-                    public boolean onRequestNetworkStatus(Context context) {
+                    public boolean onRequestNetworkStatus(@NonNull Context context) {
                         return NetworkManager.isConnected(context);
                     }
                 });

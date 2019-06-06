@@ -6,6 +6,7 @@ import android.support.annotation.LayoutRes;
 
 import com.fengchen.uistatus.Postcard;
 import com.fengchen.uistatus.annotation.UiStatus;
+import com.fengchen.uistatus.listener.OnCompatRetryListener;
 import com.fengchen.uistatus.listener.OnLayoutStatusChangedListener;
 import com.fengchen.uistatus.listener.OnRetryListener;
 
@@ -32,6 +33,10 @@ public interface IUiStatusProvider<C extends IUiStatusProvider> {
     C setOnLayoutStatusChangedListener(OnLayoutStatusChangedListener retryListener);
 
     OnLayoutStatusChangedListener getOnLayoutStatusChangedListener();
+
+    C setOnCompatRetryListener(OnCompatRetryListener onCompatRetryListener);
+
+    OnCompatRetryListener getOnCompatRetryListener();
 
     C setAutoLoadingWithRetry(boolean isAutoLoadingWithRetry);
 

@@ -2,6 +2,7 @@ package com.fengchen.uistatus;
 
 import android.support.annotation.IdRes;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.Nullable;
 
 import com.fengchen.uistatus.annotation.UiStatus;
 import com.fengchen.uistatus.listener.OnRetryListener;
@@ -45,7 +46,7 @@ public class Postcard implements Cloneable {
         this.layoutResId = layoutResId;
     }
 
-    public Postcard(@UiStatus int uiStatus, @LayoutRes int layoutResId, @IdRes int triggerViewId, OnRetryListener retryListener) {
+    public Postcard(@UiStatus int uiStatus, @LayoutRes int layoutResId, @IdRes int triggerViewId, @Nullable OnRetryListener retryListener) {
         this.uiStatus = uiStatus;
         this.layoutResId = layoutResId;
         this.triggerViewId = triggerViewId;

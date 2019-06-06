@@ -1,5 +1,7 @@
 package com.fengchen.uistatus.listener;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.fengchen.uistatus.annotation.UiStatus;
@@ -22,7 +24,7 @@ public interface OnLayoutStatusChangedListener {
      * @param uiStatus UiStatusConfig.
      * @param isShow   true显示,false隐藏.
      */
-    void onPrepareChanged(Object target, View view, @UiStatus int uiStatus, boolean isShow);
+    void onPrepareChanged(@NonNull Object target, @Nullable View view, @UiStatus int uiStatus, boolean isShow);
 
     /**
      * 改变完成.
@@ -32,5 +34,5 @@ public interface OnLayoutStatusChangedListener {
      * @param uiStatus UiStatusConfig.
      * @param isShow   true显示,false隐藏.
      */
-    void onChangedComplete(Object target, View view, @UiStatus int uiStatus, boolean isShow);
+    void onChangedComplete(@NonNull Object target, @NonNull View view, @UiStatus int uiStatus, boolean isShow);
 }

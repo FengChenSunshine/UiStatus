@@ -153,9 +153,16 @@
 <img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_network_error.jpg" width="240" alt="status_widget_network_error">
 </div>
 
- ## [8.点击查看简书上使用方法介绍](https://www.jianshu.com/p/895c9441c28b)
+ ## 8.版本说明
  
- ## 9.最后，喜欢的话可以点个赞哦！！！
+### 1.0.1 
+   1.minSdkVersion从19降低到14;
+   2.增加 OnCompatRetryListener 监听器，可以统一添加普通状态的重试监听。
+ 
+ 
+ ## [9.点击查看简书上使用方法介绍](https://www.jianshu.com/p/895c9441c28b)
+ 
+ ## 10.最后，喜欢的话可以点个赞哦！！！
 
 
 

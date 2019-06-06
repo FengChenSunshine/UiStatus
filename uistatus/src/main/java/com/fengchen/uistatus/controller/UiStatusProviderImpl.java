@@ -9,6 +9,7 @@ import android.util.SparseArray;
 import com.fengchen.uistatus.Postcard;
 import com.fengchen.uistatus.UiStatusConfig;
 import com.fengchen.uistatus.annotation.UiStatus;
+import com.fengchen.uistatus.listener.OnCompatRetryListener;
 import com.fengchen.uistatus.listener.OnLayoutStatusChangedListener;
 import com.fengchen.uistatus.listener.OnRetryListener;
 
@@ -31,6 +32,11 @@ public class UiStatusProviderImpl<C extends UiStatusProviderImpl> implements IUi
      * 视图状态改变监听器.
      */
     private OnLayoutStatusChangedListener mOnLayoutStatusChangedListener;
+
+    /**
+     * 一个支持所有状态重试回调的监听器.
+     */
+    private OnCompatRetryListener mOnCompatRetryListener;
 
     /**
      * 重试时是否自动切换到加载中视图:true自动切换,false不切换.
@@ -104,6 +110,18 @@ public class UiStatusProviderImpl<C extends UiStatusProviderImpl> implements IUi
         return this.mOnLayoutStatusChangedListener;
     }
 
+    @SuppressWarnings("unchecked")
+    @Override
+    public C setOnCompatRetryListener(OnCompatRetryListener onCompatRetryListener) {
+        this.mOnCompatRetryListener = onCompatRetryListener;
+        return (C) this;
+    }
+
+    @Override
+    public OnCompatRetryListener getOnCompatRetryListener() {
+        return this.mOnCompatRetryListener;
+    }
+
     @Override
     @SuppressWarnings("unchecked")
     public C setAutoLoadingWithRetry(boolean isAutoLoadingWithRetry) {
@@ -135,6 +153,7 @@ public class UiStatusProviderImpl<C extends UiStatusProviderImpl> implements IUi
                         , this.mPostcardArray.valueAt(i).clone());
             }
             provider.mOnLayoutStatusChangedListener = this.mOnLayoutStatusChangedListener;
+            provider.mOnCompatRetryListener = this.mOnCompatRetryListener;
             provider.isAutoLoadingWhenRetry = this.isAutoLoadingWhenRetry;
             provider.isAutoHideElfin = this.isAutoHideElfin;
             provider.mElfinDuration = this.mElfinDuration;
@@ -143,6 +162,5 @@ public class UiStatusProviderImpl<C extends UiStatusProviderImpl> implements IUi
             e.printStackTrace();
         }
     }
-
 
 }

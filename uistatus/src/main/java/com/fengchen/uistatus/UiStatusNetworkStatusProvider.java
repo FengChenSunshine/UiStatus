@@ -1,6 +1,7 @@
 package com.fengchen.uistatus;
 
 import android.content.Context;
+import android.support.annotation.NonNull;
 
 import com.fengchen.uistatus.listener.OnRequestNetworkStatusEvent;
 
@@ -31,7 +32,7 @@ public class UiStatusNetworkStatusProvider {
         return sInstance;
     }
 
-    public boolean isConnection(Context context) {
+    public boolean isConnection(@NonNull Context context) {
         return null == mNetworkStatusEvent || mNetworkStatusEvent.onRequestNetworkStatus(context);
     }
 

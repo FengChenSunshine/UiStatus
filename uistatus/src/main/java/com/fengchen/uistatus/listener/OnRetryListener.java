@@ -1,5 +1,6 @@
 package com.fengchen.uistatus.listener;
 
+import android.support.annotation.NonNull;
 import android.view.View;
 
 import com.fengchen.uistatus.controller.IUiStatusController;
@@ -21,5 +22,5 @@ public interface OnRetryListener {
      * @param controller 当前视图状态控制器.
      * @param trigger    重试触发控件.
      */
-    void onUiStatusRetry(Object target, IUiStatusController controller, View trigger);
+    void onUiStatusRetry(@NonNull Object target, @NonNull IUiStatusController controller, @NonNull View trigger);
 }
