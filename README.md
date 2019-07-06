@@ -166,6 +166,9 @@
  ## [9.点击查看简书上使用方法介绍](https://www.jianshu.com/p/895c9441c28b)
  
  ## 10.最后，喜欢的话可以点个赞哦！！！
+ 
+ ## 9.链接
+   1.[![](https://img.shields.io/badge/VersionUpdate-brightgreen.svg)](https://github.com/FengChenSunshine/VersionUpdate)是我的另一个开源库：提供一个应用版本更新功能的库！喜欢的可以看看，欢迎start！！！
 
 
 
