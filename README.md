@@ -167,8 +167,12 @@
  
  ## 10.最后，喜欢的话可以点个赞哦！！！
  
- ## 9.链接
-   1.[![](https://img.shields.io/badge/VersionUpdate-brightgreen.svg)](https://github.com/FengChenSunshine/VersionUpdate)是我的另一个开源库：提供一个应用版本更新功能的库！喜欢的可以看看，欢迎start！！！
+ ## 9.我的开源库链接
+   1.[![](https://img.shields.io/badge/UiStatus-1.0.3-brightgreen.svg)](https://github.com/FengChenSunshine/UiStatus)是我的另一个开源库：一个简单且强大的Ui状态视图控制库！喜欢的可以看看，欢迎start！！！
+      
+   2.[![](https://img.shields.io/badge/SupportWidget-1.0.0-brightgreen.svg)](https://github.com/FengChenSunshine/SupportWidget)是我的另一个开源库：一个追求简单够用且强大的UI组件库！喜欢的可以看看，欢迎start！！！
+      
+   3.[![](https://img.shields.io/badge/VersionUpdate-1.0.4-brightgreen.svg)](https://github.com/FengChenSunshine/VersionUpdate)是我的另一个开源库：提供一个应用版本更新功能的库！喜欢的可以看看，欢迎start！！！
 
 
 
