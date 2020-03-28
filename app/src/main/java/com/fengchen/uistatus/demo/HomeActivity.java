@@ -1,9 +1,9 @@
 package com.fengchen.uistatus.demo;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 
 import com.fengchen.uistatus.UiStatusController;
@@ -48,19 +48,13 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_example_activity:
-                View view = mUiStatusController.getView(UiStatus.WIDGET_FLOOR);
-                Log.i("--", null != view ? ("获取到view了" + view.getId()) : "没有获取到view");
-//                startActivity(new Intent(this, ExampleActivity.class));
+                startActivity(new Intent(this, ExampleActivity.class));
                 break;
             case R.id.btn_example_fragment:
-                View view1 = mUiStatusController.getViewStrong(UiStatus.NETWORK_ERROR);
-                Log.i("--", null != view1 ? ("获取到view了" + view1.getId()) : "没有获取到view");
-//                startActivity(new Intent(this, ShellActivity.class));
+                startActivity(new Intent(this, ShellActivity.class));
                 break;
             case R.id.btn_example_view:
-                View view2 = mUiStatusController.getView(UiStatus.NETWORK_ERROR);
-                Log.i("--", null != view2 ? ("获取到view了" + view2.getId()) : "没有获取到view");
-//                startActivity(new Intent(this, ViewExampleActivity.class));
+                startActivity(new Intent(this, ViewExampleActivity.class));
                 break;
             case R.id.btn_example_network_error_widget:
                 if (mUiStatusController.isVisibleUiStatus(UiStatus.WIDGET_NETWORK_ERROR)) {
