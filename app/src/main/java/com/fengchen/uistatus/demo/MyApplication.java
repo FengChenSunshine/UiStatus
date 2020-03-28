@@ -32,7 +32,7 @@ public class MyApplication extends Application {
         UiStatusManager.getInstance()
                 .setWidgetMargin(UiStatus.WIDGET_NETWORK_ERROR, 48 * 3, 0)
                 .setWidgetMargin(UiStatus.WIDGET_ELFIN, 48 * 3, 0)
-                .setWidgetMargin(UiStatus.WIDGET_FLOAT, 0, 0)
+                .setWidgetMargin(UiStatus.WIDGET_FLOOR, 0, 0)
                 .addUiStatusConfig(UiStatus.LOADING, R.layout.ui_status_layout_loading)//加载中.
                 .addUiStatusConfig(UiStatus.NETWORK_ERROR, R.layout.ui_status_layout_network_error, R.id.tv_network_error_retry
                         , null
@@ -118,12 +118,13 @@ public class MyApplication extends Application {
                         Toast.makeText(trigger.getContext(), "检查网络设置", Toast.LENGTH_SHORT).show();
                     }
                 })
-                .addUiStatusConfig(UiStatus.WIDGET_FLOAT, R.layout.widget_ui_status__widget_float, R.id.tv_float, new OnRetryListener() {
+                .addUiStatusConfig(UiStatus.WIDGET_FLOOR, R.layout.widget_ui_status_widget_floor, R.id.tv_float, new OnRetryListener() {
                     @Override
                     public void onUiStatusRetry(Object target, IUiStatusController controller, View trigger) {
                         Toast.makeText(trigger.getContext(), "我是Float", Toast.LENGTH_SHORT).show();
                     }
                 })
+                .addUiStatusConfig(UiStatus.WIDGET_FLOAT, R.layout.ui_status_layout_widget_float)
                 .setOnCompatRetryListener(new OnCompatRetryListener() {
                     @Override
                     public void onUiStatusRetry(int uiStatus, @NonNull Object target, final @NonNull IUiStatusController controller, @NonNull View trigger) {

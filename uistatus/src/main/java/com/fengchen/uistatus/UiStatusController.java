@@ -4,6 +4,7 @@ import android.support.annotation.IdRes;
 import android.support.annotation.IntRange;
 import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.view.View;
 
 import com.fengchen.uistatus.annotation.UiStatus;
@@ -41,7 +42,7 @@ public class UiStatusController implements IUiStatusProvider, IUiStatusControlle
     public UiStatusController bind(@NonNull Object target) {
         mUiStatusLayout = BindHelp.bind(target);
         mUiStatusLayout.setUiStatusProvider(this);
-        //默认显示加载中视图
+        //默认显示加载中视图.
         changeUiStatus(UiStatus.LOADING);
         return this;
     }
@@ -49,7 +50,7 @@ public class UiStatusController implements IUiStatusProvider, IUiStatusControlle
     public View bindFragment(@NonNull View fragmentView) {
         mUiStatusLayout = BindHelp.bindFragmentView(fragmentView);
         mUiStatusLayout.setUiStatusProvider(this);
-        //默认显示加载中视图
+        //默认显示加载中视图.
         changeUiStatus(UiStatus.LOADING);
         return mUiStatusLayout;
     }
@@ -116,6 +117,18 @@ public class UiStatusController implements IUiStatusProvider, IUiStatusControlle
     }
 
     ///////////////////////////////////////////////////////////////////
+
+    @Nullable
+    @Override
+    public View getView(@UiStatus int uiStatus) {
+        return mUiStatusLayout.getView(uiStatus);
+    }
+
+    @Nullable
+    @Override
+    public View getViewStrong(@UiStatus int uiStatus) {
+        return mUiStatusLayout.getViewStrong(uiStatus);
+    }
 
     @Override
     public void changeUiStatus(@UiStatus int uiStatus) {

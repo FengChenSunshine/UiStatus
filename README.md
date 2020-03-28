@@ -33,7 +33,7 @@
 | CONTENT|内容 | 真正需要展示给用户的内容视图，也是开发者在layout里实际布局的视图 |
 | WIDGET_NETWORK_ERROR | 网络错误小部件 | 一个类似于QQ、微信断网时顶部显示的网络错误提示视图 |
 | WIDGET_ELFIN | 小精灵(提示布局) | 一种顶部出现的提示布局，可以做类似于简书刷新时提醒推荐内容条数的小部件 |
-| WIDGET_FLOAT | 底部Float | 一种底部弹出的浮动布局，可以实现底部弹出小组件的功能 |
+| WIDGET_FLOOR | 底部Float | 一种底部弹出的浮动布局，可以实现底部弹出小组件的功能 |
  
 **在这里我们将前6种状态称之为普通状态视图，后面3种统称为Widget小部件。下文不再赘述！**
 其中，普通状态视图不会同时显示，Widget小部件状态的显示和前6种状态不冲突(可以同时显示)，
@@ -52,7 +52,7 @@
 **step two ：**
 
     dependencies {
-            implementation 'com.github.FengChenSunshine:UiStatus:1.0.3'
+            implementation 'com.github.FengChenSunshine:UiStatus:1.0.4'
     }
 ### 2.全局配置
     UiStatus库不提供任何状态的视图，完全由开发者自己自定义提供。
@@ -140,10 +140,9 @@
 
    一般的开发者只需要在自定义的Application中全局配置一次即可，并且对于LOADING、LOAD_ERROR、EMPTY、NOT_FOUND、CONTENT这些普通视图的切换可以下沉到    统一在基类Activity、Fragment或者网络加载框架中处理，具体使用大同小异，可参考Demo，这里不再赘述。
    
- ## 7.UiStatus可实现效果部分展示
- 
- 
- 注：图片来自其他APP，仅供参考实现效果使用。其他未列出效果不代表不能实现，具体可实现效果尽情发挥想象！！！
+## 7.UiStatus可实现效果部分展示
+
+   注：图片来自其他APP，仅供参考实现效果使用。其他未列出效果不代表不能实现，具体可实现效果尽情发挥想象！！！
  
 <div align="center">
 <img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_load_error.png" width="240" alt="status_load_error">
@@ -155,19 +154,43 @@
 <img src="https://github.com/FengChenSunshine/UiStatus/blob/master/image/status_widget_network_error.jpg" width="240" alt="status_widget_network_error">
 </div>
 
- ## 8.版本说明
- 
+## 8.版本说明
+
+### 1.0.4
+
+   新增:
+
+   1.UiStatusController里增加getView(@UiStatus int uiStatus),通过该方法可以获取到已经显示过的(初始化过的)视图.
+
+    该方法可以解决类似[能改变布局中文本的值吗？](https://github.com/FengChenSunshine/UiStatus/issues/6)  
+    或者[如何动态更改widget里的文本](https://github.com/FengChenSunshine/UiStatus/issues/5)等问题.
+
+   2.UiStatusController里增加getViewStrong(@UiStatus int uiStatus)方法.  
+
+    该方法与前一个方法相比较不同点是当该状态视图没有初始化时会尝试先初始化再返回.
+
+   3.增加UiStatus.WIDGET_FLOAT小部件,这是一个可以浮动在UiStatus.CONTENT之上的部件.
+
+    通过这个小部件可以实现类似在CONTENT状态上展示LOADING视图效果来代替UiStatus.LOADING效果.
+
+   更改:
+
+   1.原UiStatus.WIDGET_FLOAT更名为UiStatus.WIDGET_FLOOR,底部小部件,使其更加见名知意,之前使用了这个部件的需要格外注意.
+
+   Bug修复:
+
+   1.[当view设置margin时布局显示异常问题](https://github.com/FengChenSunshine/UiStatus/issues/7)
+
 ### 1.0.1 
    1.minSdkVersion从19降低到14;
    
    2.增加 OnCompatRetryListener 监听器，可以统一添加普通状态的重试监听。
+
+## [9.点击查看简书上使用方法介绍](https://www.jianshu.com/p/895c9441c28b)
  
+## 10.最后，喜欢的话可以点个赞哦！！！
  
- ## [9.点击查看简书上使用方法介绍](https://www.jianshu.com/p/895c9441c28b)
- 
- ## 10.最后，喜欢的话可以点个赞哦！！！
- 
- ## 9.我的开源库链接
+## 11.我的开源库链接
    1.[![](https://img.shields.io/badge/UiStatus-1.0.3-brightgreen.svg)](https://github.com/FengChenSunshine/UiStatus)是我的另一个开源库：一个简单且强大的Ui状态视图控制库！喜欢的可以看看，欢迎start！！！
       
    2.[![](https://img.shields.io/badge/SupportWidget-1.0.0-brightgreen.svg)](https://github.com/FengChenSunshine/SupportWidget)是我的另一个开源库：一个追求简单够用且强大的UI组件库！喜欢的可以看看，欢迎start！！！

@@ -57,12 +57,20 @@
         android:inflatedId="@+id/layout_not_found"
         tools:layout_marginTop="48dp" />
 
-    <!--Bottom Float视图-->
+    <!--Bottom Floor视图-->
     <ViewStub
-        android:id="@+id/view_stub_bottom_float"
+        android:id="@+id/view_stub_bottom_floor"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        android:inflatedId="@+id/layout_bottom_float" />
+        android:inflatedId="@+id/layout_bottom_floor" />
+
+    <!--Float视图-->
+    <ViewStub
+        android:id="@+id/view_stub_float"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center"
+        android:inflatedId="@+id/layout_float" />
 
 </merge>

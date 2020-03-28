@@ -4,8 +4,11 @@ import android.app.Activity;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 
 import com.fengchen.uistatus.widget.UiStatusLayout;
+
+import static android.view.ViewGroup.LayoutParams.MATCH_PARENT;
 
 /**
  * Created by 段露 on 2019/02/01 11:28.
@@ -55,7 +58,14 @@ public class BindHelp {
         View contentView = parentView.getChildAt(index);
         parentView.removeViewAt(index);
         UiStatusLayout uiStatusLayout = createUiStatusLayout(target, contentView);
+
         parentView.addView(uiStatusLayout, index, contentView.getLayoutParams());
+
+        //fix github issues bug #7.
+        //因为UiStatusLayout设置的lp是ContentView的,
+        //如果不移除ContentView的话会导致UiStatusLayout和ContentView都设置了Margin.
+        contentView.setLayoutParams(new FrameLayout.LayoutParams(MATCH_PARENT, MATCH_PARENT));
+
         return uiStatusLayout;
     }
 

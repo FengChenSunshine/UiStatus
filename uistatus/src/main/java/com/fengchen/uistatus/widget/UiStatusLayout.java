@@ -2,6 +2,7 @@ package com.fengchen.uistatus.widget;
 
 import android.animation.LayoutTransition;
 import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -55,6 +56,18 @@ public class UiStatusLayout extends FrameLayout implements IUiStatusController, 
 
     public void setUiStatusProvider(@NonNull UiStatusController controller) {
         this.mUiStatusController = controller;
+    }
+
+    @Nullable
+    @Override
+    public View getView(@UiStatus int uiStatus) {
+        return getUiViewByUiStatusFromCache(uiStatus);
+    }
+
+    @Nullable
+    @Override
+    public View getViewStrong(@UiStatus int uiStatus) {
+        return getUiViewByUiStatusAndInitGone(uiStatus);
     }
 
     @Override
@@ -170,6 +183,7 @@ public class UiStatusLayout extends FrameLayout implements IUiStatusController, 
     private boolean isWidget(@UiStatus int uiStatus) {
         return UiStatus.WIDGET_NETWORK_ERROR == uiStatus
                 || UiStatus.WIDGET_ELFIN == uiStatus
+                || UiStatus.WIDGET_FLOOR == uiStatus
                 || UiStatus.WIDGET_FLOAT == uiStatus;
     }
 
@@ -189,13 +203,24 @@ public class UiStatusLayout extends FrameLayout implements IUiStatusController, 
         view.setVisibility(visibility);
 
         if (null != listener) {
-            listener.onChangedComplete(mTarget, view, uiStatus, View.GONE == visibility);
+            listener.onChangedComplete(mTarget, view, uiStatus, View.VISIBLE == visibility);
         }
     }
 
     private View getUiViewByUiStatus(@UiStatus int uiStatus) {
         View temp = getUiViewByUiStatusFromCache(uiStatus);
         if (null == temp) temp = findUiViewByUiStatus(uiStatus);
+        return temp;
+    }
+
+    private View getUiViewByUiStatusAndInitGone(@UiStatus int uiStatus) {
+        View temp = getUiViewByUiStatusFromCache(uiStatus);
+        //如果部位null的话说明初始化过,如果是VISIBLE的那么它肯定是显示的不应该GONE,所以直接返回.
+        if (null != temp) return temp;
+
+        temp = findUiViewByUiStatus(uiStatus);
+        //如果走到这里并且部位null的话,因为在findUiViewByUiStatus方法里偷懒没有隐藏掉,所以在这里GONE.
+        if (null != temp) temp.setVisibility(View.GONE);
         return temp;
     }
 
@@ -213,6 +238,9 @@ public class UiStatusLayout extends FrameLayout implements IUiStatusController, 
         ViewStub viewStub = findViewById(viewStubId);
         viewStub.setLayoutResource(postcard.layoutResId);
         View view = viewStub.inflate();
+        //这里获取的view其实是View.VISIBLE的,但是考虑到按照流程如果走到初始化的话说明是需要显示该View,
+        //那么在这里GONE后又要被设置为VISIBLE,那么这个操作将显得没有任何意义,还会带来额外的开销,
+        //那么索性就不隐藏了.
 
         if (isWidget(uiStatus)) {
             if (postcard.topMarginPx > 0) {
