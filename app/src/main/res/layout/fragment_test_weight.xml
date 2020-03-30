@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f40"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/tv_test_weight"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+        android:layout_gravity="center"
+        android:layout_weight="1"
+        android:background="#00ffcc"
+        android:gravity="center"
+        android:text="我是设置的weight"
+        android:textSize="24sp" />
+
+</LinearLayout>

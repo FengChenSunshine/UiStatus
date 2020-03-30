@@ -39,6 +39,7 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_example_elfin_cancel).setOnClickListener(this);
         findViewById(R.id.btn_example_widget_bottom_floor).setOnClickListener(this);
         findViewById(R.id.btn_example_widget_float).setOnClickListener(this);
+        findViewById(R.id.btn_test_weight).setOnClickListener(this);
 
         mUiStatusController = UiStatusController.get().bind(this);
         mUiStatusController.changeUiStatusIgnore(UiStatus.CONTENT);
@@ -90,6 +91,10 @@ public class HomeActivity extends AppCompatActivity implements View.OnClickListe
                 } else {
                     mUiStatusController.showWidget(UiStatus.WIDGET_FLOAT);
                 }
+                break;
+            case R.id.btn_test_weight:
+                Intent intent = ShellActivity.navigation(this, 2);
+                startActivity(intent);
                 break;
         }
     }

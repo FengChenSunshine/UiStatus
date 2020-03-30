@@ -56,10 +56,14 @@ public class BindHelp {
 
     private static UiStatusLayout _bind(Object target, ViewGroup parentView, int index) {
         View contentView = parentView.getChildAt(index);
+        //临时保存下lp,否则在创建UiStatusLayout时添加了contentView导致后面再通过getLayoutParams方法获取到的lp已经被改变.
+        ViewGroup.LayoutParams lp = contentView.getLayoutParams();
+
         parentView.removeViewAt(index);
+
         UiStatusLayout uiStatusLayout = createUiStatusLayout(target, contentView);
 
-        parentView.addView(uiStatusLayout, index, contentView.getLayoutParams());
+        parentView.addView(uiStatusLayout, index, lp);
 
         //fix github issues bug #7.
         //因为UiStatusLayout设置的lp是ContentView的,

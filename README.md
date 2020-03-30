@@ -53,7 +53,7 @@
 **step two ：**
 
     dependencies {
-            implementation 'com.github.FengChenSunshine:UiStatus:1.0.4'
+            implementation 'com.github.FengChenSunshine:UiStatus:1.0.5'
     }
 ### 2.全局配置
     UiStatus库不提供任何状态的视图，完全由开发者自己自定义提供。
@@ -157,6 +157,12 @@
 
 ## 8.版本说明
 
+### 1.0.5
+
+    1.修复当被绑定的View parent是LinearLayout并且使用了weight属性时内容视图weight属性无效问题.
+    
+    2.优化绑定流程,使其可以绑定任何视图为内容视图而不会导致View原属性改变.
+
 ### 1.0.4
 
    新增:
@@ -192,7 +198,7 @@
 ## 10.最后，喜欢的话可以点个赞哦！！！
  
 ## 11.我的开源库链接
-   1.[![](https://img.shields.io/badge/UiStatus-1.0.4-brightgreen.svg)](https://github.com/FengChenSunshine/UiStatus)是我的另一个开源库：一个简单且强大的Ui状态视图控制库！喜欢的可以看看，欢迎start！！！
+   1.[![](https://img.shields.io/badge/UiStatus-1.0.5-brightgreen.svg)](https://github.com/FengChenSunshine/UiStatus)是我的另一个开源库：一个简单且强大的Ui状态视图控制库！喜欢的可以看看，欢迎start！！！
       
    2.[![](https://img.shields.io/badge/SupportWidget-1.0.0-brightgreen.svg)](https://github.com/FengChenSunshine/SupportWidget)是我的另一个开源库：一个追求简单够用且强大的UI组件库！喜欢的可以看看，欢迎start！！！
       
